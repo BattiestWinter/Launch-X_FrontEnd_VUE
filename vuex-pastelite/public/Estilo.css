@@ -1,0 +1,92 @@
+@import url(https:fonts.googleapis.com/css2?family=Monserrat&display=swap);
+
+body{
+	font-weight: 'Monserrat', sans-serif;
+	overflow-x: hidden;
+}
+
+/*Menú*/
+#menu a{
+	font-size: 18px;
+	font-weight: bold;
+	color: #420000;
+}
+
+.navbar{
+	background-color:  #f6f3f0 !important;
+}
+
+/*Imágen dinámica*/
+.carousel-inner{
+	max-height: 39rem;
+}
+
+/*Pie de página*/
+footer{
+	background: #f68c89;
+	min-height: 100px;
+}
+
+footer p{
+	text-align: center;
+}
+
+#iconos{
+	font-size: 26px;
+	padding: 0 8px;
+	color: #420000;
+}
+
+.bd-f{ background-color: #fcfbc7;}
+
+/*Formulario*/
+#bg-formu{
+	position:relative;
+	top: -130px;
+}
+
+#seccion-formu{
+	background-color: #ffffff;
+	min-height: 500px;
+	position: relative;
+}
+
+#contenedor-formulario{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #fcfbc7;
+	border-radius: 5px;
+	max-width: 500px;
+}
+
+/*Botón*/
+.btn-primary{
+	background-color: #dc5a78;
+}
+
+/*Espacio*/
+.topmargin-lg{ margin-top: 300px;}
+
+/*Media queries pantalla - small*/
+@media (max-width:768px){
+	#intro{
+		width: 90% !important;
+	}
+	.servicio-fila{
+		width: 100% !important;
+		text-align: center;
+	}
+	#bg-formu{
+		top: -110px;
+	}
+}
+
+/*Media queries pantalla - small+*/
+@media (max-width: 576px){
+	.icono-wrap{
+		flex-wrap: wrap;
+		justify-content: center !important;
+	}
+}
