@@ -27,7 +27,7 @@
             <form action="">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre">
+                    <input type="text" class="form-control" id="nombre" v-model="nombreP">
                 </div>
                 <div class="mb-3">
                     <label for="apellido" class="form-label">Apellido</label>
@@ -74,7 +74,9 @@
                 </div>
                 <!--Botón para enviar información-->
                 <div class="mb-3">
-                    <button type="button" class="btn btn-primary w-100 fs-5">Realizar pedido</button>
+                    <button v-on:click="addNombreP" type="button" class="btn btn-primary w-100 fs-5">
+                        Realizar pedido
+                    </button>
                 </div>
             </form>
         </div>
@@ -83,6 +85,17 @@
 
 <script>
 export default {
-  name: 'Pedido'
+  name: 'Pedido',
+  data(){
+      return{
+          nombreP:''
+      }
+  },
+  methods:{
+      addNombreP(){
+          this.$store.state.nombreP = this.nombreP;
+          this.$store.dispatch('addNombrePAction');
+      }
+  }
 }
 </script>

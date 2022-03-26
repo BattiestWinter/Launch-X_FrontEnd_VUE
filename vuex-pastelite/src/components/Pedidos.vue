@@ -20,7 +20,10 @@
                     <th>Adornos</th>
                 </thead>
                 <tbody>
-                    <td>Nombre_Ejemplo</td>
+                    <div v-for="(nombreP, index) in $store.state.nombresP" :key="index"> 
+                        <td>{{ index+1 }}. {{ nombreP }}</td>
+                    </div>
+                    <!--<td>{{ $store.getters.getNombreP }}</td>-->
                     <td>Apellido_Ejemplo</td>
                     <td>Telefono_Ejemplo</td>
                     <td>Correo_Ejemplo</td>
@@ -38,7 +41,10 @@
     </section>
 </template>
 
+
+
 <script>
+
 export default {
   name: 'Pedidos'
 }
