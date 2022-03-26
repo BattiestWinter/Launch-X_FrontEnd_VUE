@@ -31,50 +31,50 @@
                 </div>
                 <div class="mb-3">
                     <label for="apellido" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="apellido">
+                    <input type="text" class="form-control" id="apellido" v-model="apellidoP">
                 </div>
                 <div class="mb-3">
                     <label for="telefono" class="form-label">Telefono</label>
-                    <input type="tel" class="form-control" id="telefono">
+                    <input type="tel" class="form-control" id="telefono" v-model="telefonoP">
                 </div>
                 <div class="mb-3">
                     <label for="correo" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="correo">
+                    <input type="email" class="form-control" id="correo" v-model="correoP">
                 </div>
                 <div class="mb-3">
                     <label for="desc" class="form-label">Descripción del pedido</label>
-                    <textarea class="form-control" id="desc" rows="3"></textarea>
+                    <textarea class="form-control" id="desc" rows="3" v-model="descripcionP"></textarea>
                 </div>
                 <div class="mb-3">
                     <h6>Sabores:</h6>
                 
-                    <input type="checkbox" id="limon">
+                    <input type="checkbox" id="limon" value="Limón" v-model="saboresP">
                     <label for="limon" class="form-label">Limón</label>
                 
-                    <input type="checkbox" id="chocolate">
+                    <input type="checkbox" id="chocolate" value="Chocolate" v-model="saboresP">
                     <label for="chocolate" class="form-label">Chocolate</label>
                 
-                    <input type="checkbox" id="fresa">
+                    <input type="checkbox" id="fresa" value="Fresa" v-model="saboresP">
                     <label for="fresa" class="form-label">Fresa</label>
                 
-                    <input type="checkbox" id="queso">
+                    <input type="checkbox" id="queso" value="Queso" v-model="saboresP">
                     <label for="queso" class="form-label">Queso</label>
                 </div>
                 <div class="mb-3">
                     <h6>Adornos:</h6>
                 
-                    <input type="checkbox" id="velas">
+                    <input type="checkbox" id="velas" value="Velas" v-model="adornosP">
                     <label for="velas" class="form-label">Velas</label>
                 
-                    <input type="checkbox" id="lunetas">
+                    <input type="checkbox" id="lunetas" value="Lunetas" v-model="adornosP">
                     <label for="lunetas" class="form-label">Lunetas</label>
                 
-                    <input type="checkbox" id="oro">
+                    <input type="checkbox" id="oro" value="Oro" v-model="adornosP">
                     <label for="oro" class="form-label">Oro</label>
                 </div>
                 <!--Botón para enviar información-->
                 <div class="mb-3">
-                    <button v-on:click="addNombreP" type="button" class="btn btn-primary w-100 fs-5">
+                    <button v-on:click="addElementos" type="button" class="btn btn-primary w-100 fs-5">
                         Realizar pedido
                     </button>
                 </div>
@@ -88,13 +88,52 @@ export default {
   name: 'Pedido',
   data(){
       return{
-          nombreP:''
+          nombreP:'',
+          apellidoP: '',
+          telefonoP: null,
+          correoP: null,
+          descripcionP: null,
+          saboresP: [],
+          adornosP: []
       }
   },
   methods:{
+      addElementos(){
+          this.$store.state.elemento = this.adornosP;
+          this.$store.dispatch('addElementoAction');
+          
+          this.$store.state.elemento = this.saboresP;
+          this.$store.dispatch('addElementoAction');
+
+          this.$store.state.elemento = this.descripcionP;
+          this.$store.dispatch('addElementoAction');
+
+          this.$store.state.elemento = this.correoP;
+          this.$store.dispatch('addElementoAction');
+
+          this.$store.state.elemento = this.telefonoP;
+          this.$store.dispatch('addElementoAction');
+
+          this.$store.state.elemento = this.apellidoP;
+          this.$store.dispatch('addElementoAction');
+
+          this.$store.state.elemento = this.nombreP;
+          this.$store.dispatch('addElementoAction');
+
+          this.$store.dispatch('addRegistroAction')
+
+          this.$store.state.elemento = null;
+          this.$store.state.registro = [];
+      },
       addNombreP(){
           this.$store.state.nombreP = this.nombreP;
           this.$store.dispatch('addNombrePAction');
+          this.nombreP = '';
+      },
+      addApellidoP(){
+          this.$store.state.apellidoP = this.apellidoP;
+          this.$store.dispatch('addApellidoPAction');
+          this.apellidoP='';
       }
   }
 }

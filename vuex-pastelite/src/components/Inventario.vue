@@ -13,16 +13,20 @@
     <!--Contenedor principal-->
     <section class="container-fluid">
         <div class="table-responsive">
+            <div v-for="(producto,index) in $store.state.productoIS">
             <table class="table table-bordered">
                 <thead class="table-light">
                     <th>Producto</th>
                     <th>Cantidad</th>
                 </thead>
-                <tbody>
-                    <td>Ejemplo1</td>
-                    <td>5</td>
-                </tbody>
+                
+                <tr>
+                    <td>{{ producto }}</td>
+                    <td>{{ $store.state.cantidadIS[index] }}</td>
+                </tr>
+                
             </table>
+            </div>
         </div>
     </section>
 
@@ -33,16 +37,18 @@
     <!--Contenedor principal-->
     <section class="container-fluid">
         <div class="table-responsive">
+            <div v-for="(producto,index) in $store.state.productoIA">
             <table class="table table-bordered">
                 <thead class="table-light">
                     <th>Producto</th>
                     <th>Cantidad</th>
                 </thead>
-                <tbody>
-                    <td>Ejemplo2</td>
-                    <td>31</td>
-                </tbody>
+                <tr>
+                    <td>{{ producto }}</td>
+                    <td>{{ $store.state.cantidadIA[index] }}</td>
+                </tr>
             </table>
+            </div>
         </div>
     </section>
 
